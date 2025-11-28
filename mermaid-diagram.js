@@ -241,8 +241,8 @@ function renderMermaidDiagram() {
     Operation[Operation]:::phaseStyle
     PolicyGap[Policy Gap Evaluation]:::phaseStyle
     Metrics[Metrics]:::phaseStyle
-    Training[Training Education]:::phaseStyle
-    Culture[Culture Building]:::phaseStyle
+    Training[Training/Education]:::phaseStyle
+    Culture[Culture Building & Process Maturing]:::phaseStyle
     
     %% Main flow connections
     Requirements --> Design
