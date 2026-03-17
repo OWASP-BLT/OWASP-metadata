@@ -606,6 +606,6 @@ tbody tr:last-child td {
   word-break: break-word;
 }
 
-modal-body dd a {
+.modal-body dd a {
   color: var(--primary);
 }
