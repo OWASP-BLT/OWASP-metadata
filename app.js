@@ -532,7 +532,7 @@ function openDetailModal(row) {
         .filter(col => col !== 'archived')
         .map(col => {
             const value = row[col];
-            const label = formatColumnName(col);
+            const label = escapeHtml(formatColumnName(col));
             let display = '—';
             if (hasData(value)) {
                 const str = String(value).trim();
