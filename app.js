@@ -26,7 +26,18 @@ const elements = {
     fieldFilter: document.getElementById('field-filter'),
     completenessFilter: document.getElementById('completeness-filter'),
     archiveFilter: document.getElementById('archive-filter'),
-    columnCheckboxes: document.getElementById('column-checkboxes')
+    columnCheckboxes: document.getElementById('column-checkboxes'),
+
+    // Modal
+    detailModal: document.getElementById('detail-modal'),
+    modalOverlay: document.getElementById('modal-overlay'),
+    modalClose: document.getElementById('modal-close'),
+    modalTitle: document.getElementById('modal-title'),
+    modalBody: document.getElementById('modal-body'),
+
+    // FAQ
+    faqToggle: document.getElementById('faq-toggle'),
+    faqList: document.getElementById('faq-list'),
 };
 
 // Application State
@@ -132,6 +143,25 @@ function setupEventListeners() {
     
     // Export
     elements.exportBtn.addEventListener('click', exportToCSV);
+
+    // Modal (only if modal exists in the page)
+    if (elements.modalClose && elements.modalOverlay && elements.detailModal) {
+        elements.modalClose.addEventListener('click', closeDetailModal);
+        elements.modalOverlay.addEventListener('click', closeDetailModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !elements.detailModal.hidden) {
+                closeDetailModal();
+            }
+        });
+    }
+
+    // FAQ toggle
+    if (elements.faqToggle && elements.faqList) {
+        elements.faqToggle.addEventListener('click', () => {
+            const isOpen = elements.faqList.classList.toggle('hidden');
+            elements.faqToggle.setAttribute('aria-expanded', !isOpen);
+        });
+    }
 }
 
 function updateStatus(message) {
@@ -355,6 +385,15 @@ function renderTableBody(data) {
             }).join('')}
         </tr>
     `).join('');
+
+    // Row click opens detail modal
+    const rows = elements.tableBody.querySelectorAll('tr');
+    rows.forEach((tr, index) => {
+        tr.style.cursor = 'pointer';
+        tr.addEventListener('click', () => {
+            openDetailModal(data[index]);
+        });
+    });
 }
 
 function getVisibleColumns() {
@@ -482,6 +521,37 @@ function togglePanel(panel) {
             p.classList.add('hidden');
         }
     });
+}
+
+function openDetailModal(row) {
+    if (!row) return;
+    const title = row.repo || 'Repository';
+    elements.modalTitle.textContent = title;
+
+    const html = state.columns
+        .filter(col => col !== 'archived')
+        .map(col => {
+            const value = row[col];
+            const label = escapeHtml(formatColumnName(col));
+            let display = '—';
+            if (hasData(value)) {
+                const str = String(value).trim();
+                if (str.startsWith('http://') || str.startsWith('https://')) {
+                    display = `<a href="${escapeHtml(str)}" target="_blank" rel="noopener">${escapeHtml(str)}</a>`;
+                } else {
+                    display = escapeHtml(str.length > 200 ? str.substring(0, 200) + '...' : str);
+                }
+            }
+            return `<dt>${label}</dt><dd>${display}</dd>`;
+        })
+        .join('');
+
+    elements.modalBody.innerHTML = html ? `<dl>${html}</dl>` : '<p>No metadata.</p>';
+    elements.detailModal.hidden = false;
+}
+
+function closeDetailModal() {
+    elements.detailModal.hidden = true;
 }
 
 function toggleTheme() {
