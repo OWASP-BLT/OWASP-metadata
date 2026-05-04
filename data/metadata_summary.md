@@ -5,6 +5,7 @@
 | Field | Count |
 |---|---|
 | Country | 1 |
+| Luma-group | 1 |
 | Postal Code | 4 |
 | State | 1 |
 | University | 1 |
@@ -28,7 +29,7 @@
 | meeting-platform | 6 |
 | meetup | 1 |
 | meetup group | 2 |
-| meetup-group | 515 |
+| meetup-group | 514 |
 | order | 4 |
 | permalink | 3 |
 | pitch | 321 |
