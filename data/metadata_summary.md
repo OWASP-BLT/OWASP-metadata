@@ -63,7 +63,7 @@
 | project_classification | 306 |
 | sidebar_type | 109 |
 | social_facebook | 75 |
-| social_linkedin | 150 |
-| social_meetup | 319 |
+| social_linkedin | 151 |
+| social_meetup | 318 |
 | social_twitter | 154 |
 | social_youtube | 73 |
