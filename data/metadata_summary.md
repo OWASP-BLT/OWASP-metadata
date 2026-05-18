@@ -21,9 +21,9 @@
 | displaytext | 2 |
 | headerimage | 3 |
 | lang | 1 |
-| layout | 1088 |
+| layout | 1087 |
 | leaders | 1 |
-| level | 697 |
+| level | 696 |
 | maintenance | 2 |
 | meeting-plaform | 1 |
 | meeting-platform | 6 |
@@ -32,7 +32,7 @@
 | meetup-group | 514 |
 | order | 4 |
 | permalink | 3 |
-| pitch | 321 |
+| pitch | 320 |
 | postal-code | 198 |
 | pricing | 1 |
 | project | 22 |
@@ -44,9 +44,9 @@
 | state | 3 |
 | tabtext | 1 |
 | tag | 1 |
-| tags | 1026 |
-| title | 1088 |
-| type | 428 |
+| tags | 1025 |
+| title | 1087 |
+| type | 427 |
 | url | 4 |
 | video1 | 1 |
 | video2 | 1 |
@@ -55,15 +55,15 @@
 
 | Field | Count |
 |---|---|
-| audience | 296 |
-| code_repositories | 182 |
-| download_links | 265 |
+| audience | 295 |
+| code_repositories | 181 |
+| download_links | 264 |
 | leaders_list | 765 |
 | license | 61 |
-| project_classification | 306 |
-| sidebar_type | 109 |
+| project_classification | 305 |
+| sidebar_type | 108 |
 | social_facebook | 75 |
-| social_linkedin | 151 |
-| social_meetup | 318 |
+| social_linkedin | 152 |
+| social_meetup | 317 |
 | social_twitter | 154 |
 | social_youtube | 73 |
