@@ -518,3 +518,69 @@ tbody tr:last-child td {
     max-width: 150px;
   }
 }
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  padding: var(--space-md) var(--space-xl);
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.faq-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.faq-toggle:hover {
+  color: var(--primary-dark);
+}
+
+.faq-toggle[aria-expanded="true"]::before {
+  content: "▼ ";
+  font-size: 0.75em;
+}
+
+.faq-toggle[aria-expanded="false"]::before {
+  content: "▶ ";
+  font-size: 0.75em;
+}
+
+.faq-list.hidden {
+  display: none;
+}
+
+.faq-list {
+  margin-top: var(--space-md);
+  max-width: 50rem;
+}
+
+.faq-dl {
+  margin: 0;
+}
+
+.faq-dl dt {
+  font-weight: 600;
+  margin-top: var(--space-md);
+  color: var(--text);
+}
+
+.faq-dl dt:first-child {
+  margin-top: 0;
+}
+
+.faq-dl dd {
+  margin: var(--space-xs) 0 0 var(--space-sm);
+  color: var(--text-light);
+}
+
+.faq-dl code {
+  background: var(--bg-tertiary);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+}

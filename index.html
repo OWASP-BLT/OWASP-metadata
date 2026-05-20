@@ -106,6 +106,25 @@
     </div>
   </main>
 
+  <!-- FAQ section -->
+  <section class="faq-section" id="faq-section">
+    <button type="button" class="faq-toggle" id="faq-toggle" aria-expanded="false" aria-controls="faq-list">
+      Frequently asked questions
+    </button>
+    <div class="faq-list hidden" id="faq-list" role="region" aria-label="FAQ">
+      <dl class="faq-dl">
+        <dt>Where does the data come from?</dt>
+        <dd>Metadata is scraped from OWASP organization repositories on GitHub. Each repo’s <code>index.md</code> (Jekyll front matter) is read and normalized into the table.</dd>
+        <dt>Why does it say "Failed to load metadata"?</dt>
+        <dd>Opening the page via <code>file://</code> can block loading the data file. Use a local server instead, e.g. <code>python -m http.server 8000</code>, then open <code>http://localhost:8000</code>.</dd>
+        <dt>How do I see all fields for a repository?</dt>
+        <dd>Click a row in the table. A modal opens with the full metadata for that repository.</dd>
+        <dt>How often is the data updated?</dt>
+        <dd>Data is refreshed by the project’s GitHub Actions workflow (see the scraper workflow in the repo). You can also run the scraper locally with <code>python scripts/scrape_metadata.py</code>.</dd>
+      </dl>
+    </div>
+  </section>
+
   <!-- status -->
   <footer class="footer">
     <div class="status" id="status">Loading data...</div>
